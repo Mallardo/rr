@@ -130,12 +130,44 @@ main {
           border: none;
           background: #ffffff;
 
+          p.playerShirt {
+            position: relative;
+
+            span.playerNumber {
+              position: absolute;
+              top: 45%;
+              font-size: 25px;
+              left: calc(50% - 14px);
+              color: red;
+            }
+            span.smallNumber {
+              left: calc(50% - 8px) !important;
+            }
+          }
+
           .card-text {
             img {
               width: auto !important;
               height: 25px !important;
               border-radius: 0 !important;
 
+            }
+          }
+
+          div.actions {
+            width: 80%;
+            margin: 0 auto;
+            a {
+              font-size: 18px;
+              color: #007b5e !important;
+              text-decoration: none;
+
+              &:first-child {
+                float: left;
+              }
+              &:nth-child(2) {
+                float: right;
+              }
             }
           }
 

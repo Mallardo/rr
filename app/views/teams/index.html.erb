@@ -1,0 +1,95 @@
+<p id="notice"><%= notice %></p>
+
+<!--<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Logo url</th>
+      <th>Country</th>
+      <th>Description</th>
+      <th>Achievement</th>
+      <th>Coach</th>
+      <th>Creation year</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%# @teams.each do |team| %>
+      <tr>
+        <td><%#= team.name %></td>
+        <td><%#= team.logo_url %></td>
+        <td><%#= team.country %></td>
+        <td><%#= team.description %></td>
+        <td><%#= team.achievement %></td>
+        <td><%#= team.coach %></td>
+        <td><%#= team.creation_year %></td>
+        <td><%#= link_to 'Show', team %></td>
+        <td><%#= link_to 'Edit', edit_team_path(team) %></td>
+        <td><%#= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <%# end %>
+  </tbody>
+</table>-->
+
+<section id="team" class="pb-5">
+  <div class="container">
+    <h5 class="section-title h1">Teams</h5>
+    <div class="row">
+      <% @teams.each do |team| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+            <div class="mainflip">
+              <div class="frontside">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <p>
+                      <img class=" img-fluid" src="<%= team.logo_url %>" alt="card image">
+                    </p>
+                    <h4 class="card-title"><%= team.name %></h4>
+                    <p class="card-text"><%= t('country') %>:  <%= team.country %>
+                      <img src="<%= image_url("Flag_of_England.png") %>" alt="EPL">
+                      <br>
+                      <%= t('creation_year') %>: <%= team.creation_year %>
+                      <br>
+                      <%= t('coach') %>: <%= team.coach %>
+                    </p>
+                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="backside">
+                <div class="card">
+                  <div class="card-body text-center mt-4">
+                    <h4 class="card-title"><%= team.name %></h4>
+                    <ul class="list-inline">
+                      <li>
+                        <a class="social-icon text-xs-center" target="_blank" href="<%= team_path(team) %>">
+                          <i class="fa fa-eye"></i> <%= t("view") %>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="social-icon text-xs-center" target="_blank" href="<%= edit_team_path(team)  %>">
+                          <i class="fa fa-edit"></i> <%= t("edit") %>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="social-icon text-xs-center" target="_blank" href="<%= players_path %>?team=<%= team.id %>">
+                          <i class="fa fa-users"></i> <%= t("players") %>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<br>
+
+<%= link_to 'New Team', new_team_path %>

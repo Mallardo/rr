@@ -1,0 +1,261 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+$breakpoint-sm: 576px;
+
+body {
+  user-select: none;
+  min-width: 440px;
+}
+
+header {
+  height: 100px;
+  position: relative;
+}
+
+.my_search_btn {
+  cursor: pointer;
+  color: #fff;
+  outline: none;
+}
+
+.my_search_btn:hover, .my_search_btn:active {
+  background-color: rgba(2, 88, 216, 0.88) !important;
+  border-color: #fff;
+  outline: none;
+}
+
+header > nav.navbar {
+  z-index: 100;
+  margin-bottom: 0 !important;
+
+  a.navbar-brand {
+    height: 100% !important;
+    padding: 5px 15px !important;
+
+    image {
+      height: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  form.form-inline {
+    @media only screen and (max-width: $breakpoint-sm) {
+      input[type="search"].form-control {
+        width: 80%;
+      }
+    }
+  }
+
+  ul {
+    list-style: none;
+  }
+}
+
+footer {
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+  height: 100px;
+  position: relative;
+  display: table;
+  transition: .2s ease-in;
+
+  nav {
+    vertical-align: middle;
+    display: table-cell;
+    border-radius: 4px;
+
+    h5 {
+      color: #000000;
+      font-size: 14px;
+      line-height: 30px;
+      margin: 0;
+    }
+  }
+}
+
+.my_content {
+  background: image-url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: calc(100vh - 100px - 100px);
+  margin: 0 !important;
+
+  .center_content {
+    padding: 5px 20px;
+    background-color: rgba(68, 136, 157, 0.6);
+    color: black;
+    height: 100%;
+    width: 100%;
+    min-height: inherit;
+  }
+
+}
+
+
+section#team {
+
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: #108d6f;
+    border-color: #108d6f;
+    box-shadow: none;
+    outline: none;
+  }
+
+  .btn-primary {
+    color: #fff;
+    background-color: #007b5e;
+    border-color: #007b5e;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    border: none;
+    background: #ffffff;
+
+    .card-text {
+      img {
+        width: auto !important;
+        height: 25px !important;
+        border-radius: 0 !important;
+
+      }
+    }
+
+  }
+
+
+  .image-flip:hover .backside,
+  .image-flip.hover .backside {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    border-radius: .25rem;
+  }
+
+  .image-flip:hover .frontside,
+  .image-flip.hover .frontside {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+
+  .mainflip {
+    -webkit-transition: 1s;
+    -webkit-transform-style: preserve-3d;
+    -ms-transition: 1s;
+    -moz-transition: 1s;
+    -moz-transform: perspective(1000px);
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transition: 1s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+
+  .frontside {
+    position: relative;
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    z-index: 2;
+    margin-bottom: 30px;
+  }
+
+  .backside {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+  }
+
+  .frontside,
+  .backside {
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transition: 1s;
+    -moz-transform-style: preserve-3d;
+    -o-transition: 1s;
+    -o-transform-style: preserve-3d;
+    -ms-transition: 1s;
+    -ms-transform-style: preserve-3d;
+    transition: 1s;
+    transform-style: preserve-3d;
+  }
+
+  .frontside .card,
+  .backside .card {
+    min-height: 312px;
+  }
+
+  .backside .card a {
+    font-size: 18px;
+    color: #007b5e !important;
+  }
+
+  .frontside .card .card-title,
+  .backside .card .card-title {
+    color: #007b5e !important;
+  }
+
+  .frontside .card .card-body img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+
+  .backside ul.list-inline {
+    padding: 0 0 0 30px;
+    li {
+      text-align: left;
+      a {
+        text-decoration: none !important;
+        font-size: 30px !important;
+      }
+    }
+  }
+
+}
+
+/*
+.image {
+  margin: 0 auto 15px;
+  display: block;
+  max-width: 700px;
+  max-height: 500px;
+}*/

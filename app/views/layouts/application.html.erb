@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "Football24" %></title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Football24" %>">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+  <%= render 'layouts/navigation' %>
+</header>
+
+<main>
+  <div class="row my_content">
+    <div class="col-xs-12 center_content">
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <%= render 'layouts/footer' %>
+</footer>
+</body>
+</html>

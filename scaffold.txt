@@ -1,0 +1,2 @@
+rails g scaffold team name:string logo_url:string country:string description:text achievement:text coach:string creation_year:integer
+rails g scaffold player name:string avatar_url:string country:string achievement:text birthday:date team:references
